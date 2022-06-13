@@ -7,10 +7,6 @@
     <h1 class="mt-4">Crear nuevo Curso</h1>
     <form action="/admin/CrearCursos" class="col-12" method="post">
         <div class="mb-3">
-            <label class="form-label" for="image">Imagen</label>
-            <input type="file" class="form-control" name="image" accept="image/x-png,image/gif,image/jpeg" />
-        </div>
-        <div class="mb-3">
             <label class="form-label" for="Nombre">Nombre</label>
             <input type="text" class="form-control" placeholder="Nombre" name="Nombre" value="@Model.Nombre" required />
             <p class="alert-danger">@Html.ValidationMessage("Nombre")</p>

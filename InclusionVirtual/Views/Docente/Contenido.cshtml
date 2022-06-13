@@ -13,12 +13,11 @@
                 <option value="">-- Selecciona un curso --</option>
                 @foreach (var item in ViewBag.Cursos)
                 {
-                    <option value="@item.Id">@item.Nombre</option>
-                }
+    <option value="@item.Id">@item.Nombre</option>}
             </select>
             <p class="alert-danger">@Html.ValidationMessage("IdCurso")</p>
         </div>
-
+        <br />
         <div class="mb-3" id="moduloEx">
             <label class="form-label" for="IdCurso"><strong>Selecciona un modulo del curso</strong></label>
             <select id="modulo" onchange="cargarClases()" name="IdModulo" class="form-control">
@@ -30,6 +29,7 @@
             <label class="form-label alert-danger" for="NombreModulo"><strong>O agregar un nuevo modulo al curso</strong></label>
             <input id="moduloNew2" type="text" class="form-control" placeholder="Nombre del Modulo" name="NombreModulo" />
         </div>
+        <br />
 
         <div class="mb-3" id="ClaseEx">
             <label class="form-label" for="IdCurso"><strong>Selecciona clase del modulo</strong></label>
@@ -42,6 +42,7 @@
             <label class="form-label alert-danger" for="NombreClase"><strong>O agregar una nueva clase al Modulo</strong></label>
             <input type="text" class="form-control" placeholder="NombreClase" name="NombreClase" />
         </div>
+        <br />
 
         <div class="mb-3" id="claseDes">
             <label class="form-label" for="NombreClase"><strong>Describe brevemente la clase</strong></label>
@@ -50,8 +51,11 @@
 
         <div class="mb-3" id="claseVid">
             <label class="form-label" for="videoClase"><strong>Agregar video de la clase</strong></label>
-            <input type="text" class="form-control" placeholder="videoClase" name="videoClase" />
-            <p class="alert-danger">@Html.ValidationMessage("videoClase")</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Ningun video seleccionado" name="videoClase" required>
+                <p class="alert-danger">@Html.ValidationMessage("videoClase")</p>
+            </div>
         </div>
 
         <div class="mb-3" id="claseRec">

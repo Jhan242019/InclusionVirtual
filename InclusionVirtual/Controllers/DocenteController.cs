@@ -215,6 +215,22 @@ namespace InclusionVirtual.Controllers
                 return RedirectToAction("Error", "Home");
         }
 
+        [HttpGet]
+        public IActionResult Requisito()
+        {
+            claim.SetHttpContext(HttpContext);
+            if (claim.GetLoggedUser().IdRol == 2)
+            {
+                var user = context.GetUsuario(claim.GetLoggedUser().Id);
+                ViewBag.User = user.IdRol;
+                ViewBag.Cursos = context.GetCursosProceso(claim.GetLoggedUser().Id);
+                ViewBag.Categorias = context.GetCategorias();
+                return View("Requisito");
+            }
+            else
+                return RedirectToAction("Error", "Home");
+        }
+
         [HttpPost]
         public IActionResult Requisito(Requisitos requisitos)
         {
@@ -227,7 +243,7 @@ namespace InclusionVirtual.Controllers
                 ViewBag.Categorias = context.GetCategorias();
                 if (ModelState.IsValid)
                     context.SaveRequisitos(requisitos);
-                return View("Aprendizaje", requisitos);
+                return View("Requisito", requisitos);
             }
             else
                 return RedirectToAction("Error", "Home");

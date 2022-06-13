@@ -16,7 +16,6 @@
         <form action="/Ajustes/Editar" enctype="multipart/form-data" class="col-12" method="post">
             <input type="hidden" name="Id" value="@usuario.Id" />
             <input type="hidden" name="Imagen" value="@usuario.Imagen" />
-            <input type="hidden" name="Correo" value="@usuario.Correo" />
             <input type="hidden" name="Username" value="@usuario.Username" />
             <input type="hidden" name="Password" value="@usuario.Password" />
             <div class="mb-3">
@@ -29,62 +28,74 @@
                 <p class="alert-danger">@Html.ValidationMessage("Nombres")</p>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="Titulo">Titulo</label>
-                <input type="text" class="form-control" placeholder="Titulo o especialidad" name="Titulo" value="@usuario.Titulo" required />
-                <p class="alert-danger">@Html.ValidationMessage("Titulo")</p>
-            </div>
-            <div class="mb-3">
                 <label class="form-label" for="Apellidos">Apellidos</label>
                 <input type="text" class="form-control" placeholder="Apellidos" name="Apellidos" value="@usuario.Apellidos" required />
                 <p class="alert-danger">@Html.ValidationMessage("Apellidos")</p>
             </div>
             <div class="mb-3">
+                <label class="form-label" for="Correo">Correo</label>
+                <input type="email" class="form-control" placeholder="Email" name="Correo" value="@usuario.Correo" />
+                <p class="text-danger">@Html.ValidationMessage("Correo")</p>
+            </div>
+            <div class="mb-3">
                 <label class="form-label" for="Celular">Celular</label>
                 <input type="text" class="form-control" placeholder="Celular" name="Celular" value="@usuario.Celular" />
-                <p class="alert-danger">@Html.ValidationMessage("Celular")</p>
             </div>
-            <div class="form-group">
-                <label class="form-label">Biografía</label>
-            </div>
-            <textarea id="text" rows="5" cols="60" name="Biografia" value="@usuario.Biografia"></textarea>
-            <div class="mb-3">
+            @if (usuario.IdRol != 3)
+            {
+                <div class="mb-3">
+                    <label class="form-label" for="Titulo">Titulo</label>
+                    <input type="text" class="form-control" placeholder="Titulo o especialidad" name="Titulo" value="@usuario.Titulo" />
+                    <p class="text-danger">@Html.ValidationMessage("Titulo")</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Educación y Experiencia Laboral</label>
+                    <textarea id="text2" class="form-control" rows="5" cols="60" name="Biografia" value="@usuario.Biografia"></textarea>
+                </div>
+                            <div class="mb-3">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3"><i class="fab fa-twitter"></i></span>
                     <input type="text" class="form-control" placeholder="Twitter" name="Twitter" value="@usuario.Twitter" />
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3"><i class="fab fa-facebook-f"></i></span>
-                    <input type="text" class="form-control" placeholder="Facebook" name="Facebook" value="@usuario.Facebook" />
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3"><i class="fab fa-linkedin-in"></i></span>
-                    <input type="text" class="form-control" placeholder="LinkedIn" name="LinkedIn" value="@usuario.LinkedIn" />
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fab fa-facebook-f"></i></span>
+                        <input type="text" class="form-control" placeholder="Facebook" name="Facebook" value="@usuario.Facebook" />
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3"><i class="fab fa-youtube"></i></span>
-                    <input type="text" class="form-control" placeholder="YouTube" name="YouTube" value="@usuario.YouTube" />
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fab fa-linkedin-in"></i></span>
+                        <input type="text" class="form-control" placeholder="LinkedIn" name="LinkedIn" value="@usuario.LinkedIn" />
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3"><i class="fab fa-instagram"></i></span>
-                    <input type="text" class="form-control" placeholder="Instagram" name="Instagram" value="@usuario.Instagram" />
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fab fa-youtube"></i></span>
+                        <input type="text" class="form-control" placeholder="YouTube" name="YouTube" value="@usuario.YouTube" />
+                    </div>
                 </div>
-            </div>
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fab fa-instagram"></i></span>
+                        <input type="text" class="form-control" placeholder="Instagram" name="Instagram" value="@usuario.Instagram" />
+                    </div>
+                </div>
+            }
             <div class="float-right">
                 <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+                <a class="btn btn-danger" href="/ajustes/tablero">Cancelar</a>
             </div>
+            <br />
         </form>
+        <br />
     </div>
 </div>
 
 <script>
-    var simplemde = new SimpleMDE({ element: document.getElementById("text") });
-    simplemde.value("@usuario.Biografia");
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("text2"),
+    });
+    simplemde.value("@usuario.Biografia");      
 </script>

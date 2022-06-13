@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = ViewBag.Nombre;
+    var cursos = (List<Curso>)Model;
+}
+
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Cursos</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="breadcrumb-item"><a class="text-white" href="/user/login">Login</a></li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="breadcrumb-item"><a class="text-white" href="/ajustes/Tablero">Conectado @User.Claims.FirstOrDefault().Value</a></li>
+                        }
+                        <li class="breadcrumb-item"><a class="text-white" href="/docente/docentes">Docentes</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="/curso/cursos">Cursos</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!--Search Start-->
+@*<div class="seccion contenedor">
+        <form asp-action="Cursos" method="get">
+            <div class="form-group mb-2">
+                <input style="background-size:cover; " type="search" name="search" value="@ViewBag.Buscar">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+            </div>
+        </form>
+    </div>*@
+<!--Search End-->
+<!-- Courses Start -->
+<section class="feature-section ptb-100 gray-light-bg">
+    <div class="container">
+        <div class="row justify-content-center wow fadeInUp">
+            <div class="col-md-9 col-lg-8">
+                <div class="section-heading text-center">
+                    <h2>Nuestros Cursos</h2>
+                    <p class="lead">Presentamos los cursos que poseemos actualmente, la mayoría de nuestros cursos presentados son gratuitos.</p>
+                </div>
+            </div>
+        </div>
+        <!--Search Start-->
+        <form asp-action="Cursos" method="get" style="text-align: right;">
+            <div class="col-lg-3 col-md-6 align-content-end wow zoomIn">
+                <div class="position-relative mx-auto float-right" style="width: 100%;">
+                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5 border-end border-start" type="search" name="search" placeholder="Buscar curso" value="@ViewBag.Buscar" style=" border-radius: 50px;">
+                    <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style=" border-radius: 50px;"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                </div>
+            </div>
+        </form>
+        <!--Search End-->
+        <br />
+
+        <div class="row g-4 justify-content-center">
+            <!--INICIO FOREACH-->
+            @foreach (var item in cursos)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid rounded" src="@item.Imagen" alt="@item.Nombre">
+                            <div class="w-100 d-flex justify-content-center position-sticky bottom-0 start-0 mb-4">
+                                <a href="/Curso/Detalle?idCurso=@item.Id" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Leer más</a>
+                                <a href="/Curso/Detalle?idCurso=@item.Id" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Iniciar ahora</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            @if (item.Precio > 0)
+                            {
+                                <h3 class="mb-0">S/ @item.Precio</h3>
+                            }
+                            else
+                            {
+                                <h3 class="mb-0">Gratuito</h3>
+                            }
+                            <h5 class="mb-4">@item.Nombre</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="bi bi-person-circle text-primary me-2"></i>@item.Docente.Nombres @item.Docente.Apellidos</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fas fa-shapes text-primary me-2"></i>@item.Categoria.Nombre</small>
+                            @*<small class="flex-fill text-center py-2"><i class="bi bi-people-fill text-primary me-2"></i>30 Students</small>*@
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!--FIN FOREACH-->
+        </div>
+    </div>
+</section>
+<!-- Courses End -->

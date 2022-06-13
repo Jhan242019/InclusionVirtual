@@ -1,0 +1,309 @@
+﻿@{
+    ViewData["Title"] = ViewBag.Nombre;
+    var profes = (List<Usuario>)Model;
+    int n;
+    if (profes.Count() > 4)
+    {
+        n = 4;
+    }
+    else
+    {
+        n = profes.Count();
+    }
+
+    var cur = (List<Curso>)ViewBag.Curso;
+    int f;
+    if (cur.Count() > 3)
+    {
+        f = 3;
+    }
+    else
+    {
+        f = cur.Count();
+    }
+
+    var cat = (List<Categoria>)ViewBag.Categorias;
+    int w;
+    if (cat.Count() > 3)
+    {
+        w = 3;
+    }
+    else
+    {
+        w = cat.Count();
+    }
+
+    var comentario = (List<ComentarioCurso>)ViewBag.ComentarioCurso;
+    int co;
+    if (comentario.Count() > 4)
+    {
+        co = 4;
+    }
+    else {
+        co = comentario.Count();
+    }
+}
+
+<!-- Carousel 2 Start -->
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="/img/car1-min.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Los mejores cursos en línea</h5>
+                            <h1 class="display-3 text-white animated slideInDown">La mejor plataforma de aprendizaje en línea</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Habilidades para tu presente y tu futuro. Da tus primeros pasos con nosotros.</p>
+                            <a href="/home/testimonial" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Leer más</a>
+                            <a href="/user/register" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Únete ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="/img/car4-min.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Los mejores cursos en línea</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Edúquese en línea desde su hogar</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Estudiantes de todo el mundo se embarcan en nuevas carreras, avanzan en sus campos y enriquecen sus vidas.</p>
+                            <a href="/home/testimonial" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Leer más</a>
+                            <a href="/user/register" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Únete ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel 2 End -->
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                        <h5 class="mb-3">Instructores calificados</h5>
+                        <p>Instructores con amplia experiencia en educacion y capacitación internacional</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                        <h5 class="mb-3">Clases en línea</h5>
+                        <p>Aprende y mejora tus habilidades en lógica de programación, back  end, front end  y mucho más. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                        <h5 class="mb-3">Proyectos en casa</h5>
+                        <p>Proporcionamos las herramientas y las habilidades para que enseñes lo que te apasiona. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                        <h5 class="mb-3">Biblioteca de libros</h5>
+                        <p>Estudiantes de todo el país se embarcan en nuevas carreras, enriquecen sus vidas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="/img/about5-min2.jpg" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">Sobre nosotros</h6>
+                <h1 class="mb-4">Bienvenido a IncVIRTUAL</h1>
+                <p class="mb-4">Inclusión Virtual es la tienda virtual de enseñanza y aprendizaje en Programación Web, Móvil, Videojuegos y mucho más. </p>
+                <p class="mb-4">Al conectar estudiantes de todo el país con los mejores instructores, Inclusión Virtual ayuda a las personas a alcanzar sus metas y perseguir sus sueños. </p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Instructores calificados</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Clases didácticas</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Clases grabadas</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>ChatBox</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Material didáctico</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="/home/TerCon">Leer más</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Categories Start -->
+<div class="container-xxl py-5 category">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Categorias</h6>
+            <h1 class="mb-5">Categorias de cursos</h1>
+        </div>
+            <!---->
+            <div class="row g-4 justify-content-center">
+                @for (var i = 0; i < w; i++)
+                {
+                    var items = cat[i];
+                    Random c = new Random();
+                    var categ = c.Next(2, 5);
+                    <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                        <div class="course-item bg-light">
+                            <div class="position-relative overflow-hidden">
+                                <a class="position-relative d-block overflow-hidden" href="/home/Cursos?idCategoria=@items.Id">
+                                    <img class="img-fluid" src="img/about2-min3.jpg" alt="">
+                                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                        <h5 class="m-0">@items.Nombre</h5>
+                                        <small class="text-primary">@categ Cursos</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        @*</div>*@
+        <!--PONER AQUI EL FOREACH-->
+    </div>
+</div>
+<!-- Categories End -->
+<!-- Courses Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Cursos</h6>
+            <h1 class="mb-5">Cursos Populares</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!--INICIO FOREACH-->
+            @for (int i = 0; i < f; i++)
+            {
+                var item = cur[i];
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="@item.Imagen" alt="@item.Nombre">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="/curso/cursos" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Leer más</a>
+                                <a href="/Curso/Detalle?idCurso=@item.Id" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Iniciar ahora</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            @if (item.Precio > 0)
+                            {
+                                <h3 class="mb-0" style="color:tomato;">S/ @item.Precio</h3>
+                            }
+                            else
+                            {
+                                <h3 class="mb-0" style="color:tomato;">Gratuito</h3>
+                            }
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary" onclick="calificar1(this)" style="cursor: pointer;" id="1estrella"></small>
+                                <small class="fa fa-star text-primary" onclick="calificar1(this)" style="cursor: pointer;" id="2estrella"></small>
+                                <small class="fa fa-star text-primary" onclick="calificar1(this)" style="cursor: pointer;" id="3estrella"></small>
+                                <small class="fa fa-star text-primary" onclick="calificar1(this)" style="cursor: pointer;" id="4estrella"></small>
+                                <small class="fa fa-star text-primary" onclick="calificar1(this)" style="cursor: pointer;" id="5estrella"></small>
+                            </div>
+                            <h5 class="mb-4">@item.Nombre</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="bi bi-person-circle text-primary me-2"></i>@item.Docente.Nombres</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fas fa-shapes text-primary me-2"></i>@item.Categoria.Nombre</small>
+                            <small class="flex-fill text-center py-2"><i class="fas fa-chalkboard-teacher text-primary me-2"></i>@item.Modulos.Count Secciones</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Docentes</h6>
+            <h1 class="mb-5">Instructores Expertos</h1>
+        </div>
+        <div class="row g-4">
+            @for (int i = 0; i < n; i++)
+            {
+                var item = profes[i];
+                <div class="col-lg-3 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="@item.Imagen" alt="Imagen Profesor">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="@item.LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="@item.Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="@item.Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">@item.Nombres</h5>
+                            <small>@item.Titulo</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Nuestros estudiantes dicen!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            @for (int i = 0; i < co;i++)
+            {
+                var it = comentario[i];
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="@it.Usuario.Imagen" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">@it.Usuario.Nombres</h5>
+                    <p>@it.Usuario.Correo</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                        <p class="mb-0">@it.Comentario</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+

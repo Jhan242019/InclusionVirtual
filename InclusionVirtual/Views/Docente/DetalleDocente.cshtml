@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = ViewBag.Nombre;
+    var docent = (Usuario)Model;
+    var cursos = (List<Curso>)ViewBag.Cursos;
+    var compras= (List<Cesta>)ViewBag.Cesta;
+}
+
+<head>
+    <link href="/css/Nosotros.css" rel="stylesheet" />
+</head>
+
+<body class="index">
+    <div class="contenedor">
+        <div class="contenedor-imagen float-right wow zoomIn">
+            <img src="@docent.Imagen" alt="Imagen de Docente" style="width: 500px; height: 500px; border-radius:250px;">
+            <br />
+        </div>
+        <div>
+            <section class="contenedor-ponente float-left wow zoomIn">
+                <h2>@docent.Nombres @docent.Apellidos</h2>
+                <p><strong>Título Profesional: </strong> @docent.Titulo</p>
+                <p><strong>Educación y Experiencia Laboral: </strong></p>
+                <p>@docent.Biografia</p>
+                <p><strong>Email: </strong> @docent.Correo</p>
+                <p><strong>Celular: </strong> @docent.Celular</p>
+                <a class="btn btn-outline-primary btn-social" href="@docent.Twitter"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="@docent.Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="@docent.YouTube"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="@docent.LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-primary btn-social" href="@docent.Instagram"><i class="fab fa-instagram"></i></a>
+            </section>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <section class="seccion contenedor">
+            <h4 class="TitCardDet">Mis próximos cursos (@ViewBag.Cursoss)</h4>
+            <div class="row g-4 justify-content-center">
+                <!--INICIO FOREACH-->
+                @foreach (var item in cursos)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="course-item bg-light">
+                            <div class="position-relative overflow-hidden">
+                                <img class="img-fluid rounded" src="@item.Imagen" alt="@item.Nombre">
+                                <div class="w-100 d-flex justify-content-center position-sticky bottom-0 start-0 mb-4">
+                                    <a href="/Curso/Detalle?idCurso=@item.Id" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Leer más</a>
+                                    <a href="/Curso/Detalle?idCurso=@item.Id" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Iniciar ahora</a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 pb-0">
+                                @if (item.Precio > 0)
+                                {
+                                    <h3 class="mb-0">S/ @item.Precio</h3>
+                                }
+                                else
+                                {
+                                    <h3 class="mb-0">Gratuito</h3>
+                                }
+                                <h5 class="mb-4">@item.Nombre</h5>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="flex-fill text-center border-end py-2"><i class="bi bi-person-circle text-primary me-2"></i>@item.Docente.Nombres @item.Docente.Apellidos</small>
+                                @*<small class="flex-fill text-center border-end py-2"><i class="fas fa-shapes text-primary me-2"></i>@item.Categoria.Nombre</small>*@
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!--FIN FOREACH-->
+            </div>
+        </section>
+    </div>
+
+            <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="/js/Nuestro.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>

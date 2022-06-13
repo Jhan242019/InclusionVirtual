@@ -1,0 +1,302 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/*FONDO DE LOGIN*/
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body.fondo {
+    background-image: url(../imglogin/of.jpg);
+    height: 100vh;
+    background-position: top center;
+    background-size: cover;
+}
+
+h2, p {
+    color: #fff;
+}
+
+.container-form {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    transition: all .5s ease-out;
+}
+
+@media(min-width: 360px) and (max-width: 768px) {
+    .container-form {
+        width: 110%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        transition: all .5s ease-out;
+    }
+}
+
+.welcome-back {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+@media(min-width: 360px) and (max-width: 768px) {
+    .welcome-back {
+        width: 33%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.message {
+    padding: 1rem;
+}
+
+    .message h2 {
+        font-size: 1.7rem;
+        padding: 1rem 0;
+    }
+
+    .message button {
+        padding: 1rem;
+        font-weight: 400;
+        background-color: #4a4aee;
+        border-radius: 2rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: .9rem;
+        margin-top: 2rem;
+        transition: all .3s ease-in;
+        color: #fff;
+    }
+
+        .message button:hover {
+            background-color: #6464f8;
+        }
+
+.formulario {
+    width: 400px;
+    padding: 1rem;
+    margin: 2rem;
+    background-color: rgb(4, 4, 4, 0.54);
+    text-align: center;
+    border-radius: 5px;
+}
+
+@media(min-width: 360px) and (max-width: 768px) {
+    .formulario {
+        width: 255px;
+        padding: 1rem;
+        margin: 2rem;
+        background-color: rgb(4, 4, 4, 0.54);
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1366px) {
+    .formulario {
+        height: 100%;
+        padding: 1rem;
+        margin: 2rem;
+        background-color: rgb(4, 4, 4, 0.54);
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+
+.bienvenido {
+    width: 400px;
+    padding: 1rem;
+    margin: 2rem;
+    background-color: rgb(51, 51, 51, 0.602);
+    text-align: center;
+    border-radius: 55px;
+}
+
+.create-account {
+    padding: 2.7rem 0;
+    font-size: 1.7rem;
+}
+
+.iconos {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.border-icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: solid thin white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all .3s ease-in;
+}
+
+    .border-icon:hover {
+        background-color: #0d6485;
+        cursor: pointer;
+    }
+
+.cuenta-gratis {
+    padding: 2rem 0;
+}
+
+.formulario input {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: white;
+    border-radius: 15px;
+}
+
+    .formulario input[type="button"] {
+        width: 60%;
+        margin: auto;
+        border: solid thin white;
+        padding: .7rem;
+        border-radius: 2rem;
+        background-color: white;
+        font-weight: 600;
+        margin-top: 3rem;
+        font-size: .8rem;
+        cursor: pointer;
+        color: #222;
+    }
+
+.sign-in {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+    .sign-in.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+.sign-up.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*CSS LOGIN NUEVO*/
+.form-group {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.form-style {
+    padding: 13px 20px;
+    padding-left: 55px;
+    height: 48px;
+    width: 100%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+
+    .form-style:focus,
+    .form-style:active {
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+    }
+
+.input-icon {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+    text-align: left;
+    color: #ffeba7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:-ms-input-placeholder {
+    color: #c4c3ca;
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input::-moz-placeholder {
+    color: #c4c3ca;
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:-moz-placeholder {
+    color: #c4c3ca;
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input::-webkit-input-placeholder {
+    color: #c4c3ca;
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:focus:-ms-input-placeholder {
+    opacity: 0;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:focus::-moz-placeholder {
+    opacity: 0;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:focus:-moz-placeholder {
+    opacity: 0;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}

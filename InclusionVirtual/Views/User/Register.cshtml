@@ -1,0 +1,95 @@
+﻿@{Layout = null;}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IncVirtual</title>
+    <link rel="shortcut icon" href="/proyecto/I.png">
+
+    <!--JQUERY-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/Login2.css">
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+
+<body id="Correcto" class="fondo">
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message bienvenido">
+                <div class="contenido-header">
+                    <nav class="redes-sociales">
+                        <a href="/"><i class="fa fa-home text-info" aria-hidden="true"></i></a>
+                    </nav>
+                </div>
+                <h2 class="">Bienvenido a Inclusión Virtual</h2>
+                <p>Si ya tienes una cuenta por favor inicia sesion aquí</p>
+                <a class="btn btn-info" href="/user/login">Iniciar sesión</a>
+            </div>
+        </div>
+        <form class="formulario" action="/user/register" method="post" enctype="multipart/form-data">
+            <div class="col-12 user-img">
+                <div class="add-photo" id="add-photo">
+                    <img id="img" src="~/proyecto/camera.png" width="50" height="50" alt="Cargar Imagen" style="cursor:pointer" />
+                </div>
+                <input id="file" onchange="mostrar()" type="file" name="perfil" accept="image/x-png,image/gif,image/jpeg" />
+            </div>
+            <h2 class="create-account">Crear una cuenta</h2>
+            <p class=""></p>
+            <div class="form-group text-info" id="user-group">
+                <input type="text" placeholder="Nombres" name="Nombres" value="@Model.Nombres" />
+                <p class="text-white">@Html.ValidationMessage("Nombres")</p>
+            </div>
+
+            <div class="form-group text-info" id="user-group">
+                <input type="text" placeholder="Apellidos" name="Apellidos" value="@Model.Apellidos" />
+                <p class="text-white">@Html.ValidationMessage("Apellidos")</p>
+            </div>
+
+            <div class="form-group text-info" id="email-group">
+                <input type="email" placeholder="Email" name="Correo" value="@Model.Correo" />
+                <p class="text-white">@Html.ValidationMessage("Correo")</p>
+            </div>
+
+            <div class="form-group text-info" id="user-group">
+                <input type="text" placeholder="Usuario" name="Username" value="@Model.Username" />
+                <p class="text-white">@Html.ValidationMessage("Username")</p>
+            </div>
+
+            <div class="form-group text-info" id="contrasena-group">
+                <input type="password" placeholder="Contraseña" name="Password" value="@Model.Password" />
+                <p class="text-white">@Html.ValidationMessage("Password")</p>
+            </div>
+
+            <div class="form-group text-info" id="contrasena-group">
+                <input type="password" placeholder="Confirmar Contraseña" name="passwordConf" />
+            </div>
+            <button type="submit" class="btn btn-info"><i class="fas fa-sign-out-alt"></i>   Registrarse </button>
+            <br />
+            <p class="form-group text-white" style="font-size:.875rem;">
+                Al crear una cuenta estás aceptando los <a href="/home/TerCon" class="text-info">Términos y Condiciones</a>
+            </p>
+        </form>
+
+    </div>
+    <script src="/js/Login.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

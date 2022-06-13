@@ -1,0 +1,63 @@
+﻿@{ Layout = "~/Views/Shared/Ajustes_Layout.cshtml";
+    ViewData["Title"] = "Datos Generales";
+    var usuario = (Usuario)Model;
+}
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet" />
+</head>
+<!-- INICIO DASHBOARD-->
+<section>
+    <div class="full-box text-center" style="padding: 5% 10%;">
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Administradores
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="fas fa-user-secret" style="width:95%;height:95%;padding-top:5px;"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">@ViewBag.Admins</p>
+                <small>Registrados</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Profesores
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="fas fa-user-tie" style="width:95%;height:95%;padding-top:5px;"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">@ViewBag.Profesores</p>
+                <small>Registrados</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Estudiantes
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="fas fa-user-graduate" style="width:95%;height:95%;padding-top:5px;"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">@ViewBag.Estudiantes</p>
+                <small>Registrados</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Cursos
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="fas fa-journal-whills" style="width:95%;height:95%;padding-top:5px;"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">@ViewBag.Cursos</p>
+                <small>Registrados</small>
+            </div>
+        </article>
+    </div>
+</section>
+<!-- FIN DASHBOARD-->

@@ -1,0 +1,73 @@
+﻿@{Layout = null;}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - IncVirtual</title>
+    <link rel="shortcut icon" href="/proyecto/I.png">
+
+    <!--JQUERY-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/Login2.css">
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+
+<body class="fondo">
+    <div class="container-form sign-up">
+        <form class="formulario" action="/user/login" method="post">
+            <div class="col-12 user-img">
+                <img src="~/imglogin/user2.png" width="50" height="50" />
+            </div>
+            <h2 class="create-account">Iniciar Sesión</h2>
+            <p class="cuenta-gratis">¿Aún no tienes una cuenta?</p>
+
+            <p class="text-white">@Html.ValidationMessage("Login")</p>
+            <div class="form-group text-info" id="user-group">
+                <input type="text" placeholder="Usuario" name="Username" />
+            </div>
+            <div class="form-group text-info" id="contrasena-group">
+                <input type="password" placeholder="Contraseña" name="Password" />
+            </div>
+
+            <button type="submit" class="btn btn-info"><i class="fas fa-sign-out-alt"></i>  Ingresar </button>
+
+            @*<div class="col-12 forgot">
+                <a class="" href="/user/recover">¿Olvidaste tu contraseña?</a>
+            </div>*@
+        </form>
+        <div class="welcome-back">
+            <div class="message bienvenido">
+                <div class="contenido-header">
+                    <nav class="redes-sociales">
+                        <a href="/"><i class="fa fa-home text-info" aria-hidden="true"></i></a>
+                    </nav>
+                </div>
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aún no tienes una cuenta por favor registrese aquí</p>
+                <a class="btn btn-info" href="/user/register"><i class="fi fi-rr-thumbs-up"></i> Registrarse</a>
+            </div>
+        </div>
+    </div>
+    <script src="/js/Login.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
+

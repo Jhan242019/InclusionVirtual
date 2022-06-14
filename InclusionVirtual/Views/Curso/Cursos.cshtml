@@ -28,16 +28,6 @@
     </div>
 </div>
 <!-- Header End -->
-<!--Search Start-->
-@*<div class="seccion contenedor">
-        <form asp-action="Cursos" method="get">
-            <div class="form-group mb-2">
-                <input style="background-size:cover; " type="search" name="search" value="@ViewBag.Buscar">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
-            </div>
-        </form>
-    </div>*@
-<!--Search End-->
 <!-- Courses Start -->
 <section class="feature-section ptb-100 gray-light-bg">
     <div class="container">
@@ -45,15 +35,15 @@
             <div class="col-md-9 col-lg-8">
                 <div class="section-heading text-center">
                     <h2>Nuestros Cursos</h2>
-                    <p class="lead">Presentamos los cursos que poseemos actualmente, la mayoría de nuestros cursos presentados son gratuitos.</p>
+                    <p class="lead">Presentamos los cursos que tenemos actualmente, la mayoría de nuestros cursos presentados son gratuitos.</p>
                 </div>
             </div>
         </div>
         <!--Search Start-->
-        <form asp-action="Cursos" method="get" style="text-align: right;">
+        <form asp-action="Cursos" method="get">
             <div class="col-lg-3 col-md-6 align-content-end wow zoomIn">
                 <div class="position-relative mx-auto float-right" style="width: 100%;">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5 border-end border-start" type="search" name="search" placeholder="Buscar curso" value="@ViewBag.Buscar" style=" border-radius: 50px;">
+                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5 border-end border-start" type="search" name="search" placeholder="Buscar curso, docente" value="@ViewBag.Buscar" style=" border-radius: 50px;">
                     <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" style=" border-radius: 50px;"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
                 </div>
             </div>
@@ -86,9 +76,8 @@
                             <h5 class="mb-4">@item.Nombre</h5>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="bi bi-person-circle text-primary me-2"></i>@item.Docente.Nombres @item.Docente.Apellidos</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fas fa-user-tie text-primary me-2"></i>@item.Docente.Nombres @item.Docente.Apellidos</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fas fa-shapes text-primary me-2"></i>@item.Categoria.Nombre</small>
-                            @*<small class="flex-fill text-center py-2"><i class="bi bi-people-fill text-primary me-2"></i>30 Students</small>*@
                         </div>
                     </div>
                 </div>

@@ -100,26 +100,29 @@ namespace InclusionVirtual.Controllers
         [HttpGet]
         public IActionResult Desarrollo(int idCurso)
         {
+            claim.SetHttpContext(HttpContext);
             ViewBag.Categorias = context.GetCategorias();
             var curso = context.GetCurso(idCurso);
-            claim.SetHttpContext(HttpContext);
+            var cancelado = context.GetCompra(claim.GetLoggedUser().Id, idCurso);
 
-            if (curso != null)
+            if (cancelado != null)
             {
-                ViewBag.Nombre = curso.Nombre;
-
-                ViewBag.Progresos = context.GetProgreso(idCurso, claim.GetLoggedUser().Id);
-                
-                if (ViewBag.Progresos.Count != 0)
-                {
-                    var progreso = context.GetProgreso(idCurso, claim.GetLoggedUser().Id).Where(o => o.progress).ToList();
-                    ViewBag.Progreso = (progreso.Count() * 100) / ViewBag.Progresos.Count;
-                }
-                else
+                if (curso != null && cancelado.Pagado)
                 {
                     ViewBag.Nombre = curso.Nombre;
+                    ViewBag.Progresos = context.GetProgreso(idCurso, claim.GetLoggedUser().Id);
+
+                    if (ViewBag.Progresos.Count != 0)
+                    {
+                        var progreso = context.GetProgreso(idCurso, claim.GetLoggedUser().Id).Where(o => o.progress).ToList();
+                        ViewBag.Progreso = (progreso.Count() * 100) / ViewBag.Progresos.Count;
+                    }
+                    else
+                    {
+                        ViewBag.Nombre = curso.Nombre;
+                    }
+                    return View("Desarrollo", curso);
                 }
-                return View("Desarrollo", curso);
             }
             return RedirectToAction("Error", "Curso");
         }
@@ -138,6 +141,8 @@ namespace InclusionVirtual.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+
+            ViewBag.Categorias = context.GetCategorias();
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

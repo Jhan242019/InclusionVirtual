@@ -188,6 +188,27 @@ namespace InclusionVirtual.Repositorio
             comprado.Pagado = true;
             context.Cestas.Update(comprado);
             context.SaveChanges();
+
+            var modulos = context.Modulos
+                .Where(o => o.IdCurso == comprado.IdCurso)
+                .ToList();
+
+            foreach (var item in modulos)
+            {
+                var clase = context.Clases
+                    .Where(o => o.IdModulo == item.Id)
+                    .ToList();
+                foreach (var item2 in clase)
+                {
+                    var progresito = new Progreso();
+                    progresito.IdUser = comprado.IdUser;
+                    progresito.IdCurso = comprado.IdCurso;
+                    progresito.IdClase = item2.Id;
+                    progresito.progress = false;
+                    context.Progresos.Add(progresito);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

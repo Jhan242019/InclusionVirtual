@@ -80,12 +80,13 @@
 
             <div class="form-group text-info" id="contrasena-group">
                 <input type="password" placeholder="Confirmar Contraseña" name="passwordConf" />
+                <p class="text-warning">@Html.ValidationMessage("PasswordConf")</p>
             </div>
-            <button type="submit" class="btn btn-info"><i class="fas fa-sign-out-alt"></i>   Registrarse </button>
-            <br />
             <p class="form-group text-white" style="font-size:.875rem;">
                 Al crear una cuenta estás aceptando los <a href="/home/TerCon" class="text-info">Términos y Condiciones</a>
             </p>
+            <br />
+            <button type="submit" class="btn btn-info"><i class="fas fa-sign-out-alt"></i>   Registrarse </button>
         </form>
 
     </div>

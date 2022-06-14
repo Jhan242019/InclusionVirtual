@@ -13,7 +13,7 @@
                 <option value="">-- Selecciona un curso --</option>
                 @foreach (var item in ViewBag.Cursos)
                 {
-    <option value="@item.Id">@item.Nombre</option>}
+                    <option value="@item.Id">@item.Nombre</option>}
             </select>
             <p class="alert-danger">@Html.ValidationMessage("IdCurso")</p>
         </div>
@@ -64,8 +64,9 @@
         </div>
 
         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
-        <a class="btn btn-danger" href="/docente/">Cancelar</a>
+        <a class="btn btn-danger" href="/ajustes/tablero">Cancelar</a>
     </form>
+    <br />
 </div>
 
 @section Scripts{

@@ -72,7 +72,7 @@ function mostrar() {
     }
 }
 
-//Cursos pagados
+//Cursos pagados por admin JHANIGNACIO
 
 function Cancelado(id) {
     Swal.fire({

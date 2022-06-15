@@ -139,7 +139,7 @@ body {
 h2 {
     color: #fe4918;
     font-family: 'PT Sans', sans-serif;
-    font-size: 1.9em;
+    font-size: 1.5em;
     text-align: center;
     padding-top: 25px;
 }
@@ -154,7 +154,7 @@ h2 {
     }
 
 h3 {
-    font-size: 1.8em;
+    font-size: 1.3em;
     color: #fe4918;
     font-family: 'PT Sans', sans-serif;
     margin: 0;

@@ -20,12 +20,12 @@
 
         <div class="mb-3">
             <label class="form-label" for="Descripcion">Agregar un nuevo aprendizaje al curso</label>
-            <input type="text" class="form-control" placeholder="Descripcion" name="Descripcion" required />
+            <input type="text" class="form-control" placeholder="Aprendizaje" name="Descripcion" required />
             <p class="alert-danger">@Html.ValidationMessage("Descripcion")</p>
         </div>
 
         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
-        <a class="btn btn-danger" href="/ajustes/tablero">Cancelar</a>
+        <a class="btn btn-danger" href="/ajustes/tablero"><i class="fas fa-window-close"></i> Cancelar</a>
     </form>
     <br />
     <br />

@@ -38,14 +38,14 @@
                 <p class="text-danger">@Html.ValidationMessage("Correo")</p>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="Celular">Celular</label>
+                <label class="form-label" for="Celular">N° Celular</label>
                 <input type="text" class="form-control" placeholder="Celular" name="Celular" value="@usuario.Celular" />
             </div>
             @if (usuario.IdRol != 3)
             {
                 <div class="mb-3">
-                    <label class="form-label" for="Titulo">Titulo</label>
-                    <input type="text" class="form-control" placeholder="Titulo o especialidad" name="Titulo" value="@usuario.Titulo" />
+                    <label class="form-label" for="Titulo">Título Profesional</label>
+                    <input type="text" class="form-control" placeholder="Título o especialidad" name="Titulo" value="@usuario.Titulo" />
                     <p class="text-danger">@Html.ValidationMessage("Titulo")</p>
                 </div>
                 <div class="mb-3">
@@ -85,7 +85,7 @@
             }
             <div class="float-right">
                 <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
-                <a class="btn btn-danger" href="/ajustes/tablero">Cancelar</a>
+                <a class="btn btn-danger" href="/ajustes/tablero"><i class="fas fa-window-close"></i> Cancelar</a>
             </div>
             <br />
         </form>

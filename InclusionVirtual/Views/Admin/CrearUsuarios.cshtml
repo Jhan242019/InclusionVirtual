@@ -47,6 +47,7 @@
         <div class="mb-3">
             <label class="form-label" for="passwordConf">Confirmar Contraseña</label>
             <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="passwordConf" required />
+            <p class="text-warning">@Html.ValidationMessage("PasswordConf")</p>
         </div>
         <div class="mb-3">
             <label class="form-label" for="IdRol">Rol de Usuario</label>
@@ -59,7 +60,7 @@
             <p class="alert-danger">@Html.ValidationMessage("IdRol")</p>
         </div>
         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
-        <a class="btn btn-danger" href="/ajustes/tablero">Cancelar</a>
+        <a class="btn btn-danger" href="/ajustes/tablero"><i class="fas fa-window-close"></i> Cancelar</a>
         <br />
     </form>
     <br />

@@ -9,6 +9,7 @@
     <!--CSS GOLD CONF-->
     <link rel="stylesheet" href="~/css/Nosotros.css">
     <link href="~/css/site2.css" rel="stylesheet" />
+    <link href="~/css/CatLetras.css" rel="stylesheet" />
 </head>
 <body>
     <div class="resumen-curso wow zoomIn" id="deslizable">
@@ -129,18 +130,20 @@
                     <div class="col-md-9 col-lg-8">
                         <div class="section-heading text-center">
                             <h2>@curso.Nombre</h2>
-                            <p class="lead">@curso.Detalle</p>
+                            <p class="lead" style="font-size: 1.1em;">@curso.Detalle</p>
                         </div>
                     </div>
                 </div>
                 <br />
                 <div class="cuadro">
                     <h3>Descripción</h3>
+                    <br />
                     <p>@curso.Descripcion</p>
                 </div>
                 <br />
                 <div class="cuadro">
                     <h3>Lo que aprenderás</h3>
+                    <br />
                     <ul>
                         @if (curso.Aprendizajes.Count > 0)
                         {
@@ -158,6 +161,7 @@
                 <br />
                 <div class="cuadro">
                     <h3>Contenido del curso</h3>
+                    <br />
                     <div class="accordion" id="accordionExample">
                         @if (curso.Modulos.Count > 0)
                         {
@@ -211,7 +215,7 @@
                             <img class="rounded-start" style="width: 100%; border-radius:100px;" src="@curso.Docente.Imagen" alt="@curso.Docente.Nombres" />
                         </div>
                         <div class="col-md-9">
-                            <h3 class="card-title">Instructor</h3>
+                            <h3 class="card-title">Profesor</h3>
                             <h5>@curso.Docente.Nombres @curso.Docente.Apellidos</h5>
                             <div><strong class="fst-italic">@curso.Docente.Titulo</strong></div>
                             <div class="cuadro"><span class="fst-italic">@curso.Docente.Biografia</span></div>
@@ -221,6 +225,7 @@
                 <br />
                 <div class="cuadro">
                     <h3>Comentarios de los estudiantes</h3>
+                    <br />
                     @if (curso.Comentarios.Count > 0)
                     {
                         @foreach (var item in curso.Comentarios)
@@ -233,6 +238,11 @@
                                 </div>
                             </div>
                         }
+                    }
+                    else { 
+                        <div class="typing-demo" style="font-size: 1em;">
+                             Aún no hay comentarios.
+                        </div>
                     }
 
                     @if (User.Identity.IsAuthenticated)

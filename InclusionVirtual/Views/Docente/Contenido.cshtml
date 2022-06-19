@@ -13,11 +13,12 @@
                 <option value="">-- Selecciona un curso --</option>
                 @foreach (var item in ViewBag.Cursos)
                 {
-                    <option value="@item.Id">@item.Nombre</option>}
+                    <option value="@item.Id">@item.Nombre</option>
+                }
             </select>
             <p class="alert-danger">@Html.ValidationMessage("IdCurso")</p>
         </div>
-        <br />
+        <hr class="bg bg-warning" />
         <div class="mb-3" id="moduloEx">
             <label class="form-label" for="IdCurso"><strong>Selecciona un modulo del curso</strong></label>
             <select id="modulo" onchange="cargarClases()" name="IdModulo" class="form-control">
@@ -26,10 +27,10 @@
         </div>
 
         <div class="mb-3" id="moduloNew">
-            <label class="form-label alert-danger" for="NombreModulo"><strong>O agregar un nuevo modulo al curso</strong></label>
+            <label class="form-label alert-success" for="NombreModulo"><strong>O agregar un nuevo modulo al curso</strong></label>
             <input id="moduloNew2" type="text" class="form-control" placeholder="Nombre del Modulo" name="NombreModulo" />
         </div>
-        <br />
+        <hr class="bg bg-warning" />
 
         <div class="mb-3" id="ClaseEx">
             <label class="form-label" for="IdCurso"><strong>Selecciona clase del modulo</strong></label>
@@ -39,10 +40,10 @@
         </div>
 
         <div class="mb-3" id="claseNew">
-            <label class="form-label alert-danger" for="NombreClase"><strong>O agregar una nueva clase al Modulo</strong></label>
+            <label class="form-label alert-success" for="NombreClase"><strong>O agregar una nueva clase al Modulo</strong></label>
             <input type="text" class="form-control" placeholder="NombreClase" name="NombreClase" />
         </div>
-        <br />
+        <hr class="bg bg-warning" />
 
         <div class="mb-3" id="claseDes">
             <label class="form-label" for="NombreClase"><strong>Describe brevemente la clase</strong></label>

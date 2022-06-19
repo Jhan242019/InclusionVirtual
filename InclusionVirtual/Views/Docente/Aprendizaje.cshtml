@@ -13,7 +13,8 @@
                 <option value="">-- Selecciona un curso --</option>
                 @foreach (var item in ViewBag.Cursos)
                 {
-    <option value="@item.Id">@item.Nombre</option>}
+                    <option value="@item.Id">@item.Nombre</option>
+                }
             </select>
             <p class="alert-danger">@Html.ValidationMessage("IdCurso")</p>
         </div>

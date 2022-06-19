@@ -38,7 +38,7 @@ function video(idClase) {
 function Comprar(id) {
     Swal.fire({
         title: 'Agregar a la cesta?',
-        text: "Este curso se agregara tu cesta",
+        text: "Este curso se agregara a tu cesta",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

@@ -67,25 +67,21 @@
                     <div class="dropdown-menu fade-down m-0">
                         @foreach (var categoriasss in ViewBag.Categorias)
                         {
-                            <a class="dropdown-item" href="/home/Cursos?idCategoria=@categoriasss.Id">@categoriasss.Nombre</a>
-                        }
+            <a class="dropdown-item" href="/home/Cursos?idCategoria=@categoriasss.Id">@categoriasss.Nombre</a>}
                     </div>
                 </div>
                 <a href="/home/Testimonial" class="nav-item nav-link">Testimonial</a>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a href="/CursoUsuario/MisCursos" class="nav-item nav-link">Mis Cursos</a>
-                }
+    <a href="/CursoUsuario/MisCursos" class="nav-item nav-link">Mis Cursos</a>}
             </div>
             @if (!User.Identity.IsAuthenticated)
             {
-                <a href="/user/register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Ingresar<i class="fa fa-arrow-right ms-3"></i></a>
-            }
+<a href="/user/register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Ingresar<i class="fa fa-arrow-right ms-3"></i></a>}
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="/user/Logout" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-                <a href="/ajustes/Tablero" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">@User.Claims.FirstOrDefault().Value</a>
-            }
+<a href="/user/Logout" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                <a href="/ajustes/Tablero" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">@User.Claims.FirstOrDefault().Value</a>}
         </div>
     </nav>
     <!-- Navbar End -->
@@ -108,45 +104,41 @@
                     {
                         foreach (var item in curso.Modulos)
                         {
-                            <div class="accordion-item">
-                                <p class="accordion-header" id="heading_@item.Id">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Id" aria-expanded="true" aria-controls="collapse_@item.Id">
-                                        <strong>@item.Nombre</strong>
-                                    </button>
-                                </p>
-                                <div id="collapse_@item.Id" class="accordion-collapse collapse" aria-labelledby="heading_@item.Id" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        @foreach (var clases in item.Clases)
-                                        {
-                                            foreach (var progreso in ViewBag.Progresos)
-                                            {
-                                                if (clases.Id == progreso.IdClase && progreso.progress)
-                                                {
-                                                    <p>
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                                        <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
-                                                    </p>
-                                                }
-                                                else
-                                                if (clases.Id == progreso.IdClase && !progreso.progress)
-                                                {
-                                                    <p>
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                                        <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
-                                                    </p>
-                                                }
-                                            }
-                                            i++;
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                    else
+        <div class="accordion-item">
+            <p class="accordion-header" id="heading_@item.Id">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Id" aria-expanded="true" aria-controls="collapse_@item.Id">
+                    <strong>@item.Nombre</strong>
+                </button>
+            </p>
+            <div id="collapse_@item.Id" class="accordion-collapse collapse" aria-labelledby="heading_@item.Id" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    @foreach (var clases in item.Clases)
                     {
-                        <i class="fa fa-check" aria-hidden="true">Aún no cuenta con contenido</i>
-                    }
+                        foreach (var progreso in ViewBag.Progresos)
+                        {
+                            if (clases.Id == progreso.IdClase && progreso.progress)
+                            {
+<p>
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
+</p> }
+else
+if (clases.Id == progreso.IdClase && !progreso.progress)
+{
+<p>
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+    <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
+</p>}
+}
+i++;
+}
+                </div>
+            </div>
+        </div> }
+}
+else
+{
+<i class="fa fa-check" aria-hidden="true">Aún no cuenta con contenido</i>}
                 </div>
             </div>
         </div>
@@ -182,17 +174,16 @@
     <script src="~/js/main.js" asp-append-version="true"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-    <!-- Código de instalación Cliengo para www.IncVirtual.com -->
-    <!-- Código de instalación Cliengo para n00038802@upn.pe -->
-    <script type="text/javascript">(function () {
-        var ldk = document.createElement('script');
-        ldk.type = 'text/javascript'; ldk.async = true;
-        ldk.src = 'https://s.cliengo.com/weboptimizer/62982a9c1aa46e002a0c67c0/62982a9e1aa46e002a0c67c3.js?platform=dashboard';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ldk, s);
+    <!-- Código de instalación Cliengo para  www.IncVirtual.com -->
+    <script type="text/javascript">
+    (function () {
+            var ldk = document.createElement('script');
+            ldk.type = 'text/javascript';
+            ldk.async = true;
+            ldk.src = 'https://s.cliengo.com/weboptimizer/62b1cd828af0d6002a0269b9/62b1f172717f62002a0612aa.js?platform=onboarding_modular';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ldk, s);
         })();</script>
-
 </body>
 
 

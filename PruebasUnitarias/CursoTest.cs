@@ -23,7 +23,7 @@ namespace InclusionVirtual.Test
             repo.Setup(o => o.GetCursos()).Returns(new List<Curso>());
 
             var controller = new CursoController(repo.Object, claim.Object);
-            var view = controller.Cursos() as ViewResult;
+            var view = controller.Cursos("cursos") as ViewResult;
 
             Assert.AreEqual("Cursos", view.ViewName);
         }

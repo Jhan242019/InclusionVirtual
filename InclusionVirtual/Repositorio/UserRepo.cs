@@ -61,7 +61,7 @@ namespace InclusionVirtual.Repositorio
                 usuario.Imagen = SaveFile(perfil);
             else
             {
-                usuario.Imagen = "/proyecto/userperfil.png";
+                usuario.Imagen = "/proyecto/userperfil4.png";
             }
 
             usuario.Password = CreateHash(usuario.Password);

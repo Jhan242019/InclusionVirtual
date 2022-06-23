@@ -34,6 +34,7 @@ namespace InclusionVirtual.Controllers
             if (!string.IsNullOrEmpty(search))
             {
                 cursos = cursos.Where(s => s.Docente.Nombres.Contains(search) || s.Docente.Apellidos.Contains(search) || s.Categoria.Nombre.Contains(search) || s.Nombre.Contains(search)).ToList();
+                
                 return View("Cursos", cursos);
             }
             return View("Cursos", cursos);

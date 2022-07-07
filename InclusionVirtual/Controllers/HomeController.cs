@@ -19,7 +19,7 @@ namespace InclusionVirtual.Controllers
             this.context = context;
         }
 
-        public IActionResult Index(string search)
+        public IActionResult Index()
         {
             try
             {
@@ -53,6 +53,13 @@ namespace InclusionVirtual.Controllers
             ViewBag.Categorias = context.GetCategorias();
             return View("PoliPri");
         }
+
+        public IActionResult Contacto()
+        {
+            ViewBag.Categorias = context.GetCategorias();
+            return View("Contacto");
+        }
+
         [HttpGet]
         public IActionResult Cursos(int idCategoria)
         {

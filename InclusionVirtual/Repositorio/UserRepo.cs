@@ -29,7 +29,6 @@ namespace InclusionVirtual.Repositorio
     }
     public class UserRepo : IUserRepo
     {
-        //private readonly string email = "oraconsrl@gmail.com";
         private readonly string email = "juliaRAF2020@gmail.com";
         private readonly string password = "juliaR4F2O2O";
         private readonly string urlDomain = "https://localhost:44363/";

@@ -41,17 +41,16 @@
 
             <p class="text-warning">@Html.ValidationMessage("Login")</p>
             <div class="form-group text-info" id="user-group">
-                <input type="text" placeholder="Usuario" name="Username" />
+                <input type="text" placeholder="Usuario" name="Username"/>
             </div>
             <div class="form-group text-info" id="contrasena-group">
                 <input type="password" placeholder="Contraseña" name="Password" />
             </div>
 
             <button type="submit" class="btn btn-info"><i class="fas fa-sign-out-alt"></i>  Ingresar </button>
-
-            @*<div class="col-12 forgot">
+            <div class="col-12 forgot">
                 <a class="" href="/user/recover">¿Olvidaste tu contraseña?</a>
-            </div>*@
+            </div>
         </form>
         <div class="welcome-back">
             <div class="message bienvenido">

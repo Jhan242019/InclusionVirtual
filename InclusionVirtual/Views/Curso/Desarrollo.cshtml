@@ -67,21 +67,25 @@
                     <div class="dropdown-menu fade-down m-0">
                         @foreach (var categoriasss in ViewBag.Categorias)
                         {
-            <a class="dropdown-item" href="/home/Cursos?idCategoria=@categoriasss.Id">@categoriasss.Nombre</a>}
+                            <a class="dropdown-item" href="/home/Cursos?idCategoria=@categoriasss.Id">@categoriasss.Nombre</a>
+                        }
                     </div>
                 </div>
                 <a href="/home/Testimonial" class="nav-item nav-link">Testimonial</a>
                 @if (User.Identity.IsAuthenticated)
                 {
-    <a href="/CursoUsuario/MisCursos" class="nav-item nav-link">Mis Cursos</a>}
+                    <a href="/CursoUsuario/MisCursos" class="nav-item nav-link">Mis Cursos</a>
+                }
             </div>
             @if (!User.Identity.IsAuthenticated)
             {
-<a href="/user/register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Ingresar<i class="fa fa-arrow-right ms-3"></i></a>}
+                <a href="/user/register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Ingresar<i class="fa fa-arrow-right ms-3"></i></a>
+            }
             @if (User.Identity.IsAuthenticated)
             {
-<a href="/user/Logout" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-                <a href="/ajustes/Tablero" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">@User.Claims.FirstOrDefault().Value</a>}
+                <a href="/user/Logout" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                                <a href="/ajustes/Tablero" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">@User.Claims.FirstOrDefault().Value</a>
+             }
         </div>
     </nav>
     <!-- Navbar End -->
@@ -104,41 +108,44 @@
                     {
                         foreach (var item in curso.Modulos)
                         {
-        <div class="accordion-item">
-            <p class="accordion-header" id="heading_@item.Id">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Id" aria-expanded="true" aria-controls="collapse_@item.Id">
-                    <strong>@item.Nombre</strong>
-                </button>
-            </p>
-            <div id="collapse_@item.Id" class="accordion-collapse collapse" aria-labelledby="heading_@item.Id" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    @foreach (var clases in item.Clases)
+                            <div class="accordion-item">
+                                <p class="accordion-header" id="heading_@item.Id">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Id" aria-expanded="true" aria-controls="collapse_@item.Id">
+                                        <strong>@item.Nombre</strong>
+                                    </button>
+                                </p>
+                                <div id="collapse_@item.Id" class="accordion-collapse collapse" aria-labelledby="heading_@item.Id" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        @foreach (var clases in item.Clases)
+                                        {
+                                            foreach (var progreso in ViewBag.Progresos)
+                                            {
+                                                if (clases.Id == progreso.IdClase && progreso.progress)
+                                                {
+                                                    <p>
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                        <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
+                                                    </p> 
+                                                }
+                                                else if (clases.Id == progreso.IdClase && !progreso.progress)
+                                                {
+                                                <p>
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                    <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
+                                                </p>
+                                                }
+                                            }
+                                            i++;
+                                         }
+                                    </div>
+                                </div>
+                            </div> 
+                        }
+                    }
+                    else
                     {
-                        foreach (var progreso in ViewBag.Progresos)
-                        {
-                            if (clases.Id == progreso.IdClase && progreso.progress)
-                            {
-<p>
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-    <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
-</p> }
-else
-if (clases.Id == progreso.IdClase && !progreso.progress)
-{
-<p>
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-    <a onclick="video(@clases.Id)" href="#">@i.  @clases.Nombre</a>
-</p>}
-}
-i++;
-}
-                </div>
-            </div>
-        </div> }
-}
-else
-{
-<i class="fa fa-check" aria-hidden="true">Aún no cuenta con contenido</i>}
+                        <i class="fa fa-check" aria-hidden="true">Aún no cuenta con contenido</i>
+                    }
                 </div>
             </div>
         </div>

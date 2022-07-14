@@ -44,7 +44,7 @@
                 }
                 else if (ViewBag.Cesta == "Cesta")
                 {
-                    <a class="button" onclick="noComprar(@curso.Id)" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Quitar</a>
+                    <a class="button" onclick="noComprar(@curso.Id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Quitar</a>
                 }
                 else if (ViewBag.Cesta == "Pagado")
                 {
@@ -100,11 +100,11 @@
                                 {
                                     @if (ViewBag.Cesta == "Nada")
                                     {
-                                        <a class="button" onclick="Comprar(@curso.Id)" ><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                        <a class="button" onclick="Comprar(@curso.Id)"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                                     }
                                     else if (ViewBag.Cesta == "Cesta")
                                     {
-                                        <a class="button" onclick="noComprar(@curso.Id)" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Quitar</a>
+                                        <a class="button" onclick="noComprar(@curso.Id)"><i class="fa fa-cart-plus" aria-hidden="true"></i> Quitar</a>
                                     }
                                     else if (ViewBag.Cesta == "Pagado")
                                     {
@@ -239,12 +239,13 @@
                             </div>
                         }
                     }
-                    else { 
+                    else
+                    {
                         <div class="typing-demo" style="font-size: 1em;">
-                             Aún no hay comentarios.
+                            Aún no hay comentarios.
                         </div>
                     }
-                <br />
+                    <br />
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (ViewBag.Cesta == "Pagado")
